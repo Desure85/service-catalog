@@ -1,0 +1,4 @@
+{
+  "metadata": {"vulnerabilities": {"critical": 0, "high": 1, "moderate": 1, "low": 0, "info": 0}},
+  "advisories": {"GHSA-1001": {}}
+}

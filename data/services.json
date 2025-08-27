@@ -1,0 +1,30 @@
+[
+  {
+    "id": "svc-auth",
+    "name": "Auth Service",
+    "owner": "team-security",
+    "component": "IMPL",
+    "tags": ["auth", "jwt", "oauth2"],
+    "endpoints": [
+      { "kind": "http", "url": "https://auth.local/api", "description": "public api" }
+    ],
+    "links": [
+      { "title": "README", "url": "https://git.local/mcp/auth#readme" }
+    ],
+    "updatedAt": "2025-08-24T10:00:00Z"
+  },
+  {
+    "id": "svc-catalog",
+    "name": "Service Catalog",
+    "owner": "team-platform",
+    "component": "DISC",
+    "tags": ["catalog", "discovery"],
+    "endpoints": [
+      { "kind": "http", "url": "http://localhost:3001/api/services", "description": "self list" }
+    ],
+    "links": [
+      { "title": "KB Plan", "url": "kb://mcp/7c54744c-2dbd-4474-a4af-291d51bbc503" }
+    ],
+    "updatedAt": "2025-08-24T10:30:00Z"
+  }
+]

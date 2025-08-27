@@ -1,0 +1,17 @@
+nohup: ввод игнорируется
+{"level":30,"time":1756199939592,"pid":216594,"hostname":"dm-desktop","msg":"Server listening at http://0.0.0.0:3001"}
+{"level":30,"time":1756199939592,"pid":216594,"hostname":"dm-desktop","msg":"service-catalog listening on http://0.0.0.0:3001"}
+{"level":30,"time":1756199940375,"pid":216594,"hostname":"dm-desktop","reqId":"req-1","req":{"method":"GET","url":"/api/health","hostname":"127.0.0.1:3001","remoteAddress":"127.0.0.1","remotePort":39098},"msg":"incoming request"}
+{"level":30,"time":1756199940381,"pid":216594,"hostname":"dm-desktop","reqId":"req-1","res":{"statusCode":200},"responseTime":5.120547026395798,"msg":"request completed"}
+{"level":30,"time":1756199940389,"pid":216594,"hostname":"dm-desktop","reqId":"req-2","req":{"method":"GET","url":"/api/health","hostname":"127.0.0.1:3001","remoteAddress":"127.0.0.1","remotePort":39112},"msg":"incoming request"}
+{"level":30,"time":1756199940389,"pid":216594,"hostname":"dm-desktop","reqId":"req-2","res":{"statusCode":200},"responseTime":0.2876580059528351,"msg":"request completed"}
+{"level":30,"time":1756199940396,"pid":216594,"hostname":"dm-desktop","reqId":"req-3","req":{"method":"GET","url":"/api/schema","hostname":"127.0.0.1:3001","remoteAddress":"127.0.0.1","remotePort":39126},"msg":"incoming request"}
+{"level":30,"time":1756199940397,"pid":216594,"hostname":"dm-desktop","reqId":"req-3","res":{"statusCode":200},"responseTime":0.5439560115337372,"msg":"request completed"}
+{"level":30,"time":1756199940404,"pid":216594,"hostname":"dm-desktop","reqId":"req-4","req":{"method":"GET","url":"/api/services?component=DISC&sort=updatedAt&order=desc&limit=1&offset=0","hostname":"127.0.0.1:3001","remoteAddress":"127.0.0.1","remotePort":39142},"msg":"incoming request"}
+{"level":30,"time":1756199940405,"pid":216594,"hostname":"dm-desktop","reqId":"req-4","res":{"statusCode":200},"responseTime":0.9320890009403229,"msg":"request completed"}
+{"level":30,"time":1756199940411,"pid":216594,"hostname":"dm-desktop","reqId":"req-5","req":{"method":"GET","url":"/api/services?q=catalog&tag=catalog","hostname":"127.0.0.1:3001","remoteAddress":"127.0.0.1","remotePort":39150},"msg":"incoming request"}
+{"level":30,"time":1756199940412,"pid":216594,"hostname":"dm-desktop","reqId":"req-5","res":{"statusCode":200},"responseTime":0.7595349848270416,"msg":"request completed"}
+{"level":30,"time":1756199940419,"pid":216594,"hostname":"dm-desktop","reqId":"req-6","req":{"method":"GET","url":"/openapi.json","hostname":"127.0.0.1:3001","remoteAddress":"127.0.0.1","remotePort":39164},"msg":"incoming request"}
+{"level":30,"time":1756199940438,"pid":216594,"hostname":"dm-desktop","reqId":"req-6","res":{"statusCode":200},"responseTime":19.048005998134613,"msg":"request completed"}
+{"level":30,"time":1756199940448,"pid":216594,"hostname":"dm-desktop","reqId":"req-7","req":{"method":"GET","url":"/docs","hostname":"127.0.0.1:3001","remoteAddress":"127.0.0.1","remotePort":39174},"msg":"incoming request"}
+{"level":30,"time":1756199940448,"pid":216594,"hostname":"dm-desktop","reqId":"req-7","res":{"statusCode":200},"responseTime":0.5307050049304962,"msg":"request completed"}
