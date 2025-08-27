@@ -218,6 +218,77 @@ OpenAPI JSON:
 curl -s http://127.0.0.1:3001/openapi.json | jq '.info'
 ```
 
+## Library (ESM)
+
+Библиотека предоставляет ESM‑API, доступное через экспорт `service-catalog/lib`.
+
+### Установка
+
+Бандл и типы публикуются в `dist/` и экспортируются в `package.json` через поле `exports`:
+
+```json
+{
+  "exports": {
+    "./lib": {
+      "import": "./dist/lib.mjs",
+      "types": "./dist/lib.d.ts"
+    }
+  },
+  "types": "./dist/lib.d.ts"
+}
+```
+
+### Быстрый старт (ESM)
+
+```ts
+import { initEmbeddedCatalog } from 'service-catalog/lib';
+import type { ServiceItem, ServiceQuery } from 'service-catalog/lib';
+
+// Выберите хранилище: 'memory' | 'file' | 'sqlite'
+const catalog = await initEmbeddedCatalog({
+  store: 'file',
+  filePath: 'data/services.json',
+  // driver: 'auto' | 'native' | 'wasm' // используется только для store='sqlite'
+});
+
+// Health (показывает, был ли активирован фоллбэк)
+const h = await catalog.health();
+console.log(h);
+
+// Чтение: фильтры, сортировка, пагинация
+const page = await catalog.queryServices({
+  component: 'DISC',
+  search: 'catalog', // полнотекстовый поиск по id/name/component/tags
+  sort: 'updatedAt:desc', // поле:направление
+  page: 1,
+  pageSize: 10,
+} satisfies ServiceQuery);
+console.log(page.items.map(i => i.id));
+
+// Запись: upsert/delete (в памяти и JSON/JSONL файле; JSONL‑директория — read‑only)
+await catalog.upsertServices([
+  { id: 'svc-new', name: 'New', owner: 'team-platform', component: 'DISC', tags: [], endpoints: [], links: [], updatedAt: new Date().toISOString() } as ServiceItem,
+]);
+await catalog.deleteServices(['svc-old']);
+```
+
+### Режимы хранения
+
+- memory — данные хранятся в памяти процесса, чтение/поиск быстрые за счёт индексов.
+- file — JSON/NDJSON (JSONL) файл; поддерживается атомарная запись снапшота и потоковое чтение для JSONL/директории `.jsonl`.
+- sqlite — в текущем билде драйверы SQLite не связаны; автодетект сообщает `available=false` и библиотека автоматически выполняет фоллбэк в `file` (если задан `filePath`) или в `memory`.
+
+См. `src/lib/sqlite/driver.ts` и `src/lib/embedded.ts` — поле `health().detail` отражает `fallback: true` и `driverResolution`.
+
+### Поиск и фильтры
+
+- Фильтры: `component`, `domain`, `status`, `owner`(ы), `tag`(и), `updatedFrom/updatedTo`.
+- Полнотекст: поле `search` (по id/name/component/tags).
+- Сортировка: `sort` в формате `field[:asc|desc]` (поддерживается `updatedAt`, строки/числа).
+- Пагинация: `page`, `pageSize`.
+
+Интерфейсы: `ServiceItem`, `ServiceQuery`, `ServicePage` экспортированы в `service-catalog/lib`.
+
 ## Next
 
 - Validate per-schema version header in payloads (v1)

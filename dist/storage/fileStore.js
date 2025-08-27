@@ -38,3 +38,4 @@ export class FileStore {
         this.saveAtomic(this.delegate.all());
     }
 }
+//# sourceMappingURL=fileStore.js.map

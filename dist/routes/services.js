@@ -133,3 +133,4 @@ export async function registerServiceRoutes(app, store) {
 </html>`;
     });
 }
+//# sourceMappingURL=services.js.map

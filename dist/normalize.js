@@ -60,3 +60,4 @@ function normalizeServiceItem(it) {
     // Validate with schema, will enforce component /^[A-Z]{3,4}$/
     return ServiceSchema.parse(svc);
 }
+//# sourceMappingURL=normalize.js.map

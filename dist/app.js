@@ -9,3 +9,4 @@ export async function buildApp(store) {
     await registerServiceRoutes(app, s);
     return app;
 }
+//# sourceMappingURL=app.js.map

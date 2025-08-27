@@ -123,3 +123,4 @@ export function buildOpenApiDoc(serverUrl = 'http://localhost:3001') {
     });
     return doc;
 }
+//# sourceMappingURL=openapi.js.map
